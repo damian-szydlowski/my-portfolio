@@ -24,3 +24,90 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes glitchSnap {
+  0% {
+    opacity: 1;
+    text-shadow: none;
+    clip-path: none;
+  }
+
+  20% {
+    text-shadow:
+      250px 100px #f0f,
+      -300px -120px #0ff,
+      180px -160px #fff;
+    clip-path: inset(10% 0 20% 0);
+    opacity: 0.8;
+  }
+
+  40% {
+    text-shadow:
+      -350px 140px #0ff,
+      260px -200px #f0f;
+    clip-path: inset(20% 20% 40% 20%);
+    opacity: 0.4;
+  }
+
+  60% {
+    text-shadow:
+      220px 240px #f0f,
+      -200px -180px #0ff;
+    clip-path: inset(5% 10% 10% 5%);
+    opacity: 0.6;
+  }
+
+  80% {
+    text-shadow: none;
+    clip-path: none;
+    opacity: 1;
+  }
+  
+  100% {
+    text-shadow:
+      0px -60px 0 #0ff,  /* cyan top-left */
+      0px 60px 0 #f0f;    /* magenta bottom-right */
+    clip-path: none;
+    opacity: 0.2;
+  }
+
+}
+
+
+.glitch-blast {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.glitch-blast::before,
+.glitch-blast::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 0;
+  color: transparent;
+  transition: opacity 0.1s ease;
+}
+
+.glitch-blast:hover::before {
+  animation: glitchSnap 0.4s ease-in-out forwards;
+  animation-delay: 0s;
+  color: transparent;
+  text-shadow: 10px 10px 0 #f0f; /* 💗 bottom-right */
+  opacity: 1;
+}
+
+.glitch-blast:hover::after {
+  animation: glitchSnap 0.4s ease-in-out forwards;
+  animation-delay: 0.05s;
+  color: transparent;
+  text-shadow: -10px -10px 0 #0ff; /* 🔷 top-left */
+  opacity: 1;
+}
+

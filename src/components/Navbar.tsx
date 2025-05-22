@@ -8,7 +8,7 @@ const sairaStencil = Saira_Stencil_One({
 
 export default function Navbar() {
     return(
-        <header className="fixed top-0 w-full bg-[#01000F] text-white shadow-md z-50 ">
+        <header className="fixed top-0 w-full bg-[#01000F] text-[white] shadow-md z-50 ">
             <nav className="flex justify-between items-center px-6 py-4 mx-auto">
                 {/* Name */}
                 <a href="#top" className="text-2xl font-bold tracking-wide hover:opacity-80 transition">
