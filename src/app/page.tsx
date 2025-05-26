@@ -15,6 +15,7 @@ export default function Page() {
         id="top"
         className="snap-start h-screen w-full flex flex-col items-center justify-center bg-black text-white"
       >
+        <Banner />
         <h1 className="text-5xl font-bold mb-4"> Damian Szydlowski</h1>
         <p className="text-lg tracking-wide opacity-70">Initializing Assembly Line...</p>
       </section>
