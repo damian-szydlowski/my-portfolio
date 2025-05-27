@@ -7,21 +7,20 @@ import Banner from '@/components/Banner';
 
 export default function Page() {
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-brushed ">
       <Navbar />
 
       {/* Intro Section */}
       <section
         id="top"
-        className="snap-start h-screen w-full flex flex-col items-center justify-center bg-black text-white"
+        className="snap-start h-screen w-full flex flex-col items-center justify-center text-white bg-brushed"
       >
         <Banner />
-        <h1 className="text-5xl font-bold mb-4"> Damian Szydlowski</h1>
-        <p className="text-lg tracking-wide opacity-70">Initializing Assembly Line...</p>
+
       </section>
 
       {/* About Section */}
-      <section id="about" className="snap-start h-screen w-full bg-gray-900 text-white">
+      <section id="about" className="snap-start h-screen w-full bg-brushed text-white">
         <About />
       </section>
 

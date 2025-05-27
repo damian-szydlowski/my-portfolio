@@ -1,6 +1,6 @@
 export default function About() {
     return (
-      <section className="mt-16 px-6 max-w-2xl text-center">
+      <section className=" px-6 max-w-2xl text-center">
         <img
           src="/images/profilepic.jpg"
           alt="Damian Szydlowski"

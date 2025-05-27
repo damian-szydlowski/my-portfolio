@@ -112,3 +112,27 @@ body {
   opacity: 1;
 }
 
+.bg-brushed {
+  position: relative;
+  background-color: #111;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.015) 0px,
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+
+.bg-brushed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to left, transparent, rgba(255,255,255,0.05) 50%, transparent);
+  z-index: 0;
+}

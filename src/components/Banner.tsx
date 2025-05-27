@@ -1,3 +1,4 @@
+"use client";
 import { Saira_Stencil_One } from "next/font/google";
 
 const sairaStencil = Saira_Stencil_One({
@@ -7,36 +8,48 @@ const sairaStencil = Saira_Stencil_One({
 });
 
 export default function Banner() {
-    return (
-        <section className="reflective h-screen w-full overflow-hidden text-white">
-            
-            <video
-            className= "absolute top-0 left-0 w-full h-full object-cover z-[-1]"
-            autoPlay
-            loop
-            muted
-            playsInline
-            >
-            <source src="videos/spare.mp4" type="video/mp4" />
+  return (
+    <section className="reflective h-screen w-full overflow-hidden text-white flex items-center justify-center">
+      <div className="flex flex-col items-center gap-6 relative text-center">
+        {/* Role Tags */}
+        <p className="text-xl font-medium italic text-gray-300">
+          Engineer • Designer • Developer
+        </p>
 
-            </video>
+        {/* Name with Hover Arrow Drop */}
+        <div className="relative group cursor-pointer" onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}>
+          <h1 className={`${sairaStencil.className} text-6xl font-bold glitch-blast`}>
+            Damian Szydlowski
+          </h1>
 
-            <div className="relative z-10 flex flex-col items-center h-135 justify-center"> 
-                <p className="text-2xl font-bold text-[white] italic  mb-4 h-30">Engineer • Designer • Developer </p>
+          {/* Down arrow drops on hover */}
+          <div className="absolute left-1/2 -bottom-6 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className="text-cyan-400 text-2xl animate-bounce">↓</span>
+          </div>
+        </div>
 
-                {/* Clickable Name */}
-                <a
-                href="#about"
-                className={`${sairaStencil.className} text-6xl font-bold transition-all glitch-blast`}
-                data-text="Damian Szydlowski"            
-                > 
-                    <h1 className={`${sairaStencil.className}`}>
-                        Damian Szydlowski
-                    </h1>
-                </a>                
-            </div>
-        </section>
+        {/* Sub Tags */}
+        <div className="text-sm uppercase tracking-wider text-gray-400 space-x-2">
+          <span>Mechatronics</span>
+          <span>•</span>
+          <span>McMaster</span>
+          <span>•</span>
+          <span>Team-Builder</span>
+        </div>
 
-    );
-};
+        {/* Hologram Photo */}
+        <div className="mt-6 relative w-52 h-64 border border-cyan-400 bg-black bg-opacity-30 backdrop-blur-sm rounded-lg shadow-lg">
+          <img
+            src="/images/profilepic.jpg"
+            alt="Damian"
+            className="w-full h-full object-cover opacity-90 mix-blend-screen"
+          />
+          <div className="absolute bottom-2 left-2 text-cyan-300 text-xs font-mono opacity-80">
+            [ STATUS: ONLINE ]
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
