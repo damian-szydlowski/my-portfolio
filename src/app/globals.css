@@ -136,3 +136,99 @@ body {
   background: linear-gradient(to left, transparent, rgba(255,255,255,0.05) 50%, transparent);
   z-index: 0;
 }
+
+@keyframes crt-glow {
+  0% {
+    background-position: 0 0%;
+  }
+  100% {
+    background-position: 0 200%;
+  }
+}
+
+.crt-scan {
+  position: relative;
+  display: inline-block;
+  color: white;
+}
+
+.crt-scan::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 46%,
+    rgba(0, 255, 255, 0.5) 48%,
+    rgba(0, 255, 255, 0.85) 50%,
+    rgba(0, 255, 255, 0.5) 52%,
+    transparent 54%,
+    transparent 100%
+  );
+
+  background-size: 100% 200%;
+  background-repeat: repeat;
+  background-position: 0 0%;
+  animation: crt-glow 4s linear infinite;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+.crt-scan:hover::after {
+  animation: none;
+  opacity: 0;
+}
+
+@layer utilities {
+  @keyframes armRotate {
+    0%   { transform: rotate(0deg); }
+    30%  { transform: rotate(-20deg); }
+    70%  { transform: rotate(-20deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @keyframes clawClose {
+    0%, 30% { transform: rotate(0deg); }
+    50%     { transform: rotate(-15deg); }
+    70%     { transform: rotate(-15deg); }
+    100%    { transform: rotate(0deg); }
+  }
+
+  @keyframes arrowDrop {
+    0%, 60%   { opacity: 0; transform: translateY(-20px); }
+    70%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-armRotate {
+    animation: armRotate 2s ease-in-out forwards;
+  }
+
+  .animate-clawClose {
+    animation: clawClose 2s ease-in-out forwards;
+  }
+
+  .animate-arrowDrop {
+    animation: arrowDrop 2s ease-in-out forwards;
+    animation-delay: 1.2s;
+  }
+
+  .pivot-upperarm {
+    transform-origin: 80px 120px;
+  }
+
+  .pivot-upperclaw {
+    transform-origin: 135px 65px;
+  }
+
+  .pivot-lowerclaw {
+    transform-origin: 158px 105px;
+  }
+}

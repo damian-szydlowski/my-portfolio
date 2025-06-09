@@ -1,11 +1,7 @@
 export default function About() {
     return (
       <section className=" px-6 max-w-2xl text-center">
-        <img
-          src="/images/profilepic.jpg"
-          alt="Damian Szydlowski"
-          className="w-90 h-90 mb-6 object-cover"
-        />
+
 
         <h2 className="text-3xl font-bold text-white mb-4">About Me</h2>
         <p className="text-gray-400 leading-relaxed">
